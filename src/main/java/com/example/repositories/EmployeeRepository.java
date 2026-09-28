@@ -1,11 +1,12 @@
 package com.example.repositories;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import com.example.dtos.EmployeeListResponse;
 import com.example.models.Employee;
 
 import hu.szit.resclient.ResClient;
+import hu.szit.resclient.ResConvert;
 
 public class EmployeeRepository implements Repository<Employee, Integer> {
 
@@ -13,10 +14,11 @@ public class EmployeeRepository implements Repository<Employee, Integer> {
 
     @Override
     public List<Employee> findAll() {
-        List<Employee> empList = new ArrayList<>();
+        
         ResClient client = new ResClient();
         String json = client.get(url);
-        
+        EmployeeListResponse res = ResConvert.toObject(json, EmployeeListResponse.class);
+        List<Employee> empList = res.data;
         return empList;
     }
 
