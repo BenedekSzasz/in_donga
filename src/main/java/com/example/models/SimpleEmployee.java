@@ -1,21 +1,13 @@
 package com.example.models;
 
-public class Employee {
-    int id;
+public class SimpleEmployee {
     String name;
     String city;
     int salary;
     int positionId;
-    public Employee() {
+    public SimpleEmployee() {
     }
-    public Employee(String name, String city, int salary, int positionId) {
-        this.name = name;
-        this.city = city;
-        this.salary = salary;
-        this.positionId = positionId;
-    }
-    public Employee(int id, String name, String city, int salary, int positionId) {
-        this.id = id;
+    public SimpleEmployee(String name, String city, int salary, int positionId) {
         this.name = name;
         this.city = city;
         this.salary = salary;
@@ -24,13 +16,7 @@ public class Employee {
 
     @Override 
     public String toString() {
-        return id + " " + name + " " + city + " " + salary;
-    }
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
+        return name + " " + city + " " + salary;
     }
     public String getName() {
         return name;
